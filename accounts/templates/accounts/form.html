@@ -1,0 +1,10 @@
+<div class="login-page">
+  	<div class="form">
+		<form class='login-form' method="POST" action='.'>
+			{% csrf_token %}
+			{{ form.as_p }}
+			<BUTTON>Submit</BUTTON>
+      		<a class="message" href="{% url 'social:begin' 'google-oauth2' %}">Login using Google</a>
+      	</form>
+	</div>
+</div>

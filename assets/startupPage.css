@@ -1,0 +1,31 @@
+.container{
+	border: 1px solid black;
+	box-shadow: 4px 4px #7777;
+	margin: auto;
+}
+
+#head5{
+  text-align: center;
+  font-size:1.4em;
+  font-family:'Robot-Light',sans-serif;
+  color:#ec5133;
+
+}
+
+#logo{
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+	width:50%;
+	height:50vh;
+}
+#desc{
+	text-align: justify;
+	font-size: 1em;
+	font-family: calibri;
+}
+.hed{
+  font-size:1.25em;
+  font-family:'Robot-Light',sans-serif;
+  color:#d24c38;
+}

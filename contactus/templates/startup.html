@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block extra_css%}
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <link rel="stylesheet" href="{% static 'joinus.css' %}">
+  <script src="{% static 'parsley.js' %}"></script>
+  <style type="text/css">
+
+  </style>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="login-page">
+	<div class="form">
+	<form class="login-form" method = "POST" data-validate="parsley">
+		<h2>Application Form For Incubation at NIIT University </h2>
+		{% csrf_token %}
+    <div class="tab" data-validate="parsley">
+		  {{form.name_of_enterprise}}
+      {{form.name_of_enterprise.error}}
+      {{form.name_of_enterpreneur}}
+      {{form.name_of_enterpreneur.error}}
+      {{form.email}}
+      {{form.email.error}}
+      {{form.phone_number}}
+      {{form.phone_number.error}}
+      {{form.nationality}}
+      {{form.nationality.error}}
+      {{form.dob}}
+      {{form.dob.error}}
+      <button type="button" class="next">Next</button>
+    </div>
+    <div class="tab"> 
+      {{form.address}}
+      {{form.address.error}}
+      {{form.education}}
+      {{form.education.error}}
+      {{form.website}}
+      {{form.website.error}}
+      <div class="btn-group" style="width: 100%">
+        <button type="button" class="previous" style="background-color: #B1351A">Previous</button>
+        <button type="button" class="next" >Next</button>
+      </div>
+    </div>
+    <div class="tab"> 
+      {{form.organization_type}}
+      {{form.organization_type.error}}
+      {{form.is_your_enterprise}}
+      {{form.is_your_enterprise.error}}
+      {{form.impact}}
+      {{form.impact.error}}
+      {{form.nu_mentor}}
+      {{form.nu_mentor.error}}
+      {{form.name_of_mentor}}
+      {{form.name_of_mentor.error}}
+      {{form.sector}}
+      {{form.sector.error}}
+      {{form.mention}}
+      {{form.mention.error}}
+
+    <div class="btn-group" style="width: 100%">
+        <button type="button" class="previous" style="background-color: #B1351A">Previous</button>
+        <button type="button" class="next" >Next</button>
+      </div>
+    </div>
+    <div class="tab">
+      {{form.infra_resource}}
+      {{form.infra_resource.error}}
+      {{form.special_req}}
+      {{form.special_req.error}}
+      {{form.pro_req}}
+      {{form.pro_req.error}}
+      <div class="btn-group" style="width: 100%">
+        <button type="button" class="previous" style="background-color: #B1351A">Previous</button>
+        <button type="button" class="next" >Next</button>
+      </div>
+    </div>
+    <div class="tab"> 
+      {{form.employee_space}}
+      {{form.employee_space.error}}
+      {{form.current_space}}
+      {{form.current_space.error}}
+      {{form.descr}}
+      {{form.descr.error}}
+
+            <div class="btn-group" style="width: 100%">
+        <button type="button" class="previous" style="background-color: #B1351A">Previous</button>
+        <button type="button" class="next" >Next</button>
+      </div>
+    </div>
+    <div class="tab">
+      {{form.descr_bplan}}
+      {{form.descr_bplan.error}}
+      {{form.attachment_of_bplan}}
+      {{form.attachment_of_bplan.error}}
+      {{form.sourc_fund}}
+      {{form.sourc_fund.error}}
+      <div class="btn-group" style="width: 100%">
+        <button type="button" class="previous" style="background-color: #B1351A">Previous</button>
+        <button type="button" class="next" >Next</button>
+      </div>
+    </div>
+    <div class="tab"> 
+      {{form.benefic}}
+      {{form.benefic.error}}
+      {{form.stp_benefit}}
+      {{form.stp_benefit.error}}
+            {{form.if_select}}
+      {{form.if_select.error}}
+      <div class="btn-group" style="width: 100%">
+        <button type="button" class="previous" style="background-color: #B1351A">Previous</button>
+        <button type="button" class="next" >Next</button>
+      </div>
+    </div>
+    <div class="tab"> 
+      {{form.other_de}}
+      {{form.other_de.error}}
+      {{form.Signature}}
+      {{form.Signature.error}}
+      <div class="btn-group" style="width: 100%">
+        <button type="button" class="previous" style="background-color: #B1351A">Previous</button>
+
+      <br>
+            <div class="g-recaptcha" data-sitekey="6LdC058UAAAAAKYRRfXqwcI2BWhLmfTeC0g4sT_u"></div>
+        <button type="submit"> SEND </button>
+      </div>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+</div>
+	</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+  var $sections = $('.tab');
+  $sections.each(function(index, section) {
+    $(section).find(':input').attr('data-parsley-group', 'block-' + index);
+  });
+
+
+  var tabs= document.getElementsByClassName('tab')
+  var step= document.getElementsByClassName('step')
+  var i=0;
+  tabs[i].style.display="block";
+  step[i].style.opacity="1"
+  $(".next").click(function(){
+      $('form').parsley().whenValidate({
+        group: 'block-' + i
+        }).done(function() {
+            tabs[i].style.display="none";
+            step[i].style.opacity="0.1"
+            i++;
+            tabs[i].style.display="block";
+            step[i].style.opacity="1"
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+      });
+    });
+
+  $(".previous").click(function(){
+      tabs[i].style.display="none";
+      step[i].style.opacity="0.1"
+      i--;
+      tabs[i].style.display="block";
+      step[i].style.opacity="1"
+    });
+</script>
+
+
+{% endblock %}

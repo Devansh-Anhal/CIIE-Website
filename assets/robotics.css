@@ -1,0 +1,40 @@
+html{
+  width:100%;
+  font-size:100%;
+}
+p{
+	margin: 0px;
+}
+
+.text1{
+	margin: 0px;
+	font-size: 1.25em;
+	font-family: calibri;
+	text-align: center;
+	padding: 20px;
+  text-align:justify;
+  
+}
+
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  padding: 20px;
+}
+#head8{
+  float:left;
+  font-size:1.625em;
+  font-family:'Robot-Light',sans-serif;
+  color:#ec5133;
+  font-weight:bold;
+}

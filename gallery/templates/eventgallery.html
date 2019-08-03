@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load static from staticfiles %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'gallery.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="page-heading">{{category}}</div>
+  <div class="gallery-container">
+
+  {% for pic in pics %}
+    <div class="image-card" style="background-image: url(../media/{{pic.image}});"></div>
+  {% endfor %}
+
+</div>
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+<script>
+  var modal = document.getElementById('myModal');
+  var img = document.getElementsByClassName('image-card');
+
+  $( "#myModal" ).click(function() {
+      $("#myModal").css("display","none");
+          $("header").css("z-index","1");
+
+  });
+
+  $(img).click(function(){
+    var bg= $(this).attr('style');
+    bg = bg.replace('background-image: url(','').replace(');','').replace(/\"/gi, "");
+    console.log(bg);
+    $("#myModal").css("display","block");
+    $("header").css("z-index","-1");
+    $("#myModal").find('img').attr('src',bg);
+  });
+</script>
+{% endblock %}

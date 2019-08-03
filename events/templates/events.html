@@ -1,0 +1,94 @@
+
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block extra_css %}
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script src="sweetalert2.all.min.js"></script>
+  <script type="text/javascript">
+
+        $(document).on('submit', '.evn', function(e){
+          $("#btnAddProfile").attr('value', 'Save');
+          btn= $(this).parent().find("input[type='submit']");
+          if(btn.val()=='REGISTER'){
+            btn.attr('value', 'UNREGISTER');
+              Swal.fire({
+              title: 'Registered!',
+              text: 'You have registered for the event',
+              type: 'success',
+              showCancelButton: false, // There won't be any cancel button
+              showConfirmButton: false
+            })
+          }
+          else {
+            btn.attr('value', 'REGISTER');
+            Swal.fire({
+              title: 'Unregistered!',
+              text: 'You have unregisted from the event',
+              type: 'warning',
+              showCancelButton: false, // There won't be any cancel button
+              showConfirmButton: false
+            })
+          }
+
+          e.preventDefault();
+          $.ajax({
+            type: 'POST',
+            url: '/events/submit',
+            data:{
+              event:$(this).parent().find("input[class='name']").val(),
+              csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },
+            sucess:function(data){
+              console.log('ok');
+            }
+          });
+        });
+
+    </script> 
+    <link rel="stylesheet" type="text/css" href="{% static 'events.css' %}">
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<br>
+<div class="page-heading">Events</div><br>
+{% for event,key in events.items %}  
+  <div class="blog-slider">
+    <div class="blog-slider__wrp swiper-wrapper">
+      <div class="blog-slider__item swiper-slide">
+            <div class="blog-slider__img">
+              <img src="../media/{{event.logo}}" alt="">
+              {% if user.is_authenticated %}
+              <form class="evn " method="POST">
+                {% csrf_token %}
+                <input type="hidden" class="name" value="{{event.title}}">
+                {% if key %}
+                <input type="submit" class="centerbut blog-slider__button" value="UNREGISTER" /> 
+                {% else %}
+                <input type="submit" class="centerbut blog-slider__button" value="REGISTER" />
+                {% endif %}
+              </form>
+              {% else %}
+                <a  class="centerbut blog-slider__button" value="REGISTER" href="{% url 'social:begin' 'google-oauth2' %}?next={{request.path}}">REGISTER</a> 
+              {% endif %}
+            </div>
+            <div class="blog-slider__content">
+              <div class="blog-slider__title">{{event.title}}</div>
+              <div class="blog-slider__text">{{event.description}}</div>
+              <a href="/event_details?id={{event.pk}}" class="blog-slider__button">READ MORE</a>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}

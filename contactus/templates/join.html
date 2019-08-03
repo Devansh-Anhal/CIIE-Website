@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block extra_css%}
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <link rel="stylesheet" href="{% static 'joinus.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-page">
+	<div class="form">
+		<h2 >JOIN US ! </h2>
+		<form class='login-form' method = "POST" >
+			{% csrf_token %}
+			{{form.as_p}}
+			<br>
+            <div class="g-recaptcha" data-sitekey="6LdC058UAAAAAKYRRfXqwcI2BWhLmfTeC0g4sT_u"></div>
+
+			<button type="submit"> SEND </button>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% load static from staticfiles %}
+
+{% block extra_css %}
+ <meta charset="utf-8">
+  <title>Welcome to NU-CIIE</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+ <!-- <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %} " rel="stylesheet">
+  <link href="{% static 'lib/animate/animate.min.css' %} " rel="stylesheet">
+  <link href="{% static 'lib/venobox/venobox.css' %} " rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %} " rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+ <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container wow fadeIn">
+      <h1 class="mb-4 pb-0">The Centre <br>for<br><span>Innovation Incubation and Entrepreneurship</span></h1>
+      <p class="mb-4 pb-0">NIIT University, Neemrana</p>
+      <a href="https://www.youtube.com/watch?v=_JVzkvYRHiE" class="venobox play-btn mb-4" data-vbtype="video"
+        data-autoplay="true"></a>
+      <a href="#about" class="about-btn scrollto">About NUCIIE</a>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!--==========================
+      About Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-justify">
+            <h2>What We Do</h2>
+            <p>NU-CIIE works to provide a platform to its students, so that may share their ideas, innovations and concepts. It conducts training programmes in the field of entrepreneurial skill development and develops entrepreneurship related course curriculum to incorporate in management and engineering programmes. It also provides guidance and facilities to first time entrepreneurs during gestation.</p>
+          </div>
+       </div>
+      </div>
+    </section>
+
+    <!--==========================
+      Speakers Section
+    ============================-->
+    <section id="speakers" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>NU-CIIE Programs</h2>
+          <p>Here are some of our initiatives</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="{% static 'img/programs/program1.jpg' %} " alt="Program 1" class="img-fluid hgt">
+              <div class="details">
+                <h3><a href="speaker-details.html">Innovation Marathon</a></h3>
+                <p>15 January, 2019</p>
+                <div class="social">
+                  <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a> 
+         <!--         <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="{% static 'img/programs/program2.jpg' %} " alt="Program 2" class="img-fluid hgt">
+              <div class="details">
+                <h3><a href="speaker-details.html">Startup BootCamp</a></h3>
+                <p>2-3 March, 2019</p>
+                <div class="social">
+                  <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a> 
+        <!--          <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="{% static 'img/programs/program3.jpg' %} " alt="Program 3" class="img-fluid">
+              <div class="details">
+                <h3><a href="speaker-details.html"><small>Interaction with</small><br> Prof.Arya Kumar</a></h3>
+                <p>26 February,2019</p>
+                <div class="social">
+                  <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a> 
+          <!--    <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>-->
+                </div>
+              </div>
+            </div>
+          </div>
+           </div>
+      </div>
+    </section>
+
+    <section>
+      
+<div class="container">
+        <div class="row">
+          <div class="col-lg-4 text-justify">
+            <h3 class="font-weight-bold">Vision</h3>
+            <p>CIIE views to build an Entrepreneurial Ecosystem to provide a platform for students with creative minds and ideas and the potential to create business opportunities.</p>
+          </div>
+          <div class="col-lg-4 text-justify">
+            <h3 class="font-weight-bold">Overview</h3>
+            <p>The Centre for Innovation Incubation and Entrepreneurship (CIIE) was started to encourage participation in the field of entrepreneurship and innovation. It works to promote the sharing of new ideas between ingenious minds and gives them a platform to collaborate.</p>
+          </div>
+          <div class="col-lg-4 text-justify">
+            <h3 class="font-weight-bold">Mission</h3>
+            <p>CIIE aims to create awareness about Entrepreneurship and develop such skills among the students. It intends to nurture the budding entrepreneurs within NU and provide them with equalopportunities.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  <!-- JavaScript Libraries -->
+  <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'lib/superfish/hoverIntent.js' %}"></script>
+  <script src="{% static 'lib/superfish/superfish.min.js' %}"></script>
+  <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+  <script src="{% static 'lib/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <!--<script src="contactform/contactform.js"></script>-->
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+{% endblock %}

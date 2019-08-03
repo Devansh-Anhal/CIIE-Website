@@ -1,0 +1,106 @@
+<!-- startup.{insert model attribute name} to get the attribute of that model -->
+{% extends 'base.html'  %}
+{% load static from staticfiles %}
+{% block extra_css %}
+<title>Startup- {{startup.title}}</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+ <!-- <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %} " rel="stylesheet">
+  <link href="{% static 'lib/animate/animate.min.css' %} " rel="stylesheet">
+  <link href="{% static 'lib/venobox/venobox.css' %} " rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %} " rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <style type="text/css">
+
+  	img{
+  		max-width: 100%;
+  		width:500px;
+  	}
+  	p,h2,h8{
+  		font-family:Roboto;
+  	}
+  	#about p, h8{
+  		font-size:20px!important;
+  	}
+
+#desc{
+	transition: all 0.3s ease-in;
+      text-decoration:none;
+}  
+#desc:hover{
+	text-shadow: 1px 0px 20px white;
+}
+
+  </style>
+
+  
+{% endblock %}
+{% block content %}
+
+    <section id="about" >
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-6 ">
+            <h2 class="font-weight-bold">{{startup.title}}</h2><br>
+            <p class="text-justify">{{startup.description}}</p>
+            <br><br>
+            <h8>Team - {{startup.team}}</h8><br><br><br><br>
+            <h8 style="text-align:left;">For more information:</h8>
+            <h8 id="desc"><a href="{{startup.url}}" id="link">{{startup.url}}</a></h8><br>
+
+          </div>
+          <div class="col-lg-6">
+            <img src="../media/{{startup.logo}}">
+            <BR>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+                    </div>
+
+          </section>
+
+          
+<script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'lib/superfish/hoverIntent.js' %}"></script>
+  <script src="{% static 'lib/superfish/superfish.min.js' %}"></script>
+  <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+  <script src="{% static 'lib/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <!--<script src="contactform/contactform.js"></script>-->
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+
+
+<!-- startup.{insert model attribute name} to get the attribute of that model -->
+
+{% endblock %}
+
+
+<!-- startup.{insert model attribute name} to get the attribute of that model -->
+

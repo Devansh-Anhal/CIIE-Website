@@ -1,0 +1,78 @@
+  {% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block extra_css %}
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <link rel="stylesheet" href="{% static 'joinus.css' %}">
+  <style>
+    #content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    }
+
+    #id_join_ciie{
+      display: none;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class="login-page">
+  <div class="form">
+    <h2>Submit Your Idea!</h2>
+    {{ form.non_field_errors }}
+    <form class='login-form' method = "POST">
+    {% csrf_token %}
+    <div class="fieldWrapper">
+      {{ form.first_name.errors }}
+      {{ form.first_name }}
+      {{ form.last_name.errors }}
+      {{ form.last_name }}
+      {{ form.email.errors }}
+      {{ form.email }}
+      {{ form.enrollment_no.errors }}
+      {{ form.enrollment_no }}
+      {{ form.idea.errors }}
+      {{ form.idea }}
+      <h2 for="{{ form.join_ciie.id_for_label }}">Join CIIE?</h2>
+      <div class="btn-group" style="width: 100%">
+        <button type="button" id="yes" >Yes</button>
+        <button type="button" id="no"" style="background-color: #B1351A">No</button>
+      </div><br>
+            <div class="g-recaptcha" data-sitekey="6LdC058UAAAAAKYRRfXqwcI2BWhLmfTeC0g4sT_u"></div>
+
+      {{ form.join_ciie }}
+      <div id="content">
+        {{ form.why_do_you_want_to_join_CIIE.errors }}
+        {{ form.why_do_you_want_to_join_CIIE }}
+      </div>  
+    </div>
+    <button class="btn" > Submit form </button>
+  </form>
+  </div>
+</div>
+
+<script>
+
+var content = document.getElementById("content");
+
+$("#yes").click(function(){
+  document.getElementById("id_join_ciie").checked = true;
+  content.style.maxHeight = content.scrollHeight + "px";
+  $("#no").css('background-color', '#821618');
+  $(this).css('background-color', '#B1351A');
+});
+
+$("#no").click(function(){
+  document.getElementById("id_join_ciie").checked = false;
+  content.style.maxHeight = null;
+  $("#yes").css('background-color', '#821618');
+  $(this).css('background-color', '#B1351A');
+});
+
+</script>
+
+
+{% endblock %}

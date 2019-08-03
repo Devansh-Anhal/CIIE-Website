@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load static from staticfiles %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'gallery.css' %}">
+  <style type="text/css">
+    .overlay{
+      width: 100%;
+      height: 30%;
+      margin-top: 70%;
+      background-color: #ffffffe0;
+      text-align: center;
+          justify-content:center;
+        }
+          .hding {
+              padding-top: 20px;
+              font-size: 40px;
+}
+    
+
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">Gallery</div>
+  <div class="gallery-container">
+  {% for cat in categories %}
+    <div class="image-card" href="#" value="{{cat}}" style="background-image: url(../media/{{cat.thumbnail}});">
+    <div class="overlay "><div class="hding">{{cat}}</div></div></div>
+  {% endfor %}
+</div>
+<script>
+  var img = document.getElementsByClassName('image-card');
+  $(img).click(function(){
+    var bg= $(this).attr("value");
+    console.log(bg);
+    window.location = "/gallery?event="+bg;
+  });
+</script>
+{% endblock %}

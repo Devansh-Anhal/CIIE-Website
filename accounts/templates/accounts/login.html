@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block extra_css%}
+	<link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="text-center" style="margin-top: 10px">Login</h1>
+
+{% include 'accounts/form.html' with form=form %}
+
+{% endblock %}
+
+
+
+
+

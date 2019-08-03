@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block extra_css %}
+
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+<link rel="stylesheet" type="text/css" href="{% static 'team.css' %}">
+
+{% endblock %}
+
+{% block content %}
+	<div class="page-heading">Our Team</div>
+	
+	{% for title,key in dic.items %}
+		<div class="team-title">{{key}}</div>
+		<div class="team-container">
+		{% for name in title  %}
+			<div class="team-slider">
+				<div class="team-slider__wrp swiper-wrapper">
+					<div class="team-slider__item swiper-slide">
+      					<div class="team-slider__img">
+        					<img src="../media/{{name.image}}" alt="">
+        				<ul class="social">
+                        <li><a href="{{name.url}}"><i class="fas fa-external-link-alt"></i></a></li>
+                    	</ul>
+      					</div>
+      					<div class="team-slider__content">
+        					<div class="team-slider__title"><a href="#">{{name.name}}</a></div>
+        					<div class="team-slider__text">{{name.email}}</div>
+      					</div>
+
+    				</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	{% endfor %}
+{% endblock %}
+
+
+
